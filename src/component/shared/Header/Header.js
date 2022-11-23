@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { FaCentos } from "react-icons/fa";
-import { FaUserAlt } from "react-icons/fa";
-import { FaCanadianMapleLeaf } from "react-icons/fa";
+import { FaPhoneVolume } from "react-icons/fa";
+import { FaBookOpen } from "react-icons/fa";
 import { AuthContext } from '../../../Context/UserContext';
 
 
@@ -32,7 +32,7 @@ const Header = () => {
                 title='Home'
                 className={({ isActive }) =>
                   isActive
-                    ? 'font-bold tracking-wide text-[#8ea018]  transition-colors duration-200 hover:text-deep-purple-accent-400'
+                    ? 'font-bold tracking-wide text-[#7018a0]  transition-colors duration-200 hover:text-deep-purple-accent-400'
                     : 'font-medium tracking-wide text-[#e6e7e7] transition-colors duration-200 hover:text-deep-purple-accent-400'
                 }
               >
@@ -41,12 +41,12 @@ const Header = () => {
             </li>
             <li>
               <NavLink
-                to='/Service               '
+                to='/Service'
                 aria-label='Home'
                 title='event'
                 className={({ isActive }) =>
                   isActive
-                    ? 'font-bold tracking-wide text-[#8ea018]  transition-colors duration-200 hover:text-deep-purple-accent-400'
+                    ? 'font-bold tracking-wide text-[#a01897]  transition-colors duration-200 hover:text-deep-purple-accent-400'
                     : 'font-medium tracking-wide text-[#e6e7e7] transition-colors duration-200 hover:text-deep-purple-accent-400'
                 
                 }
@@ -62,7 +62,7 @@ const Header = () => {
                 title='blog'
                 className={({ isActive }) =>
                   isActive
-                    ? 'font-bold tracking-wide text-[#8ea018]  transition-colors duration-200 hover:text-deep-purple-accent-400'
+                    ? 'font-bold tracking-wide text-[#9918a0]  transition-colors duration-200 hover:text-deep-purple-accent-400'
                     : 'font-medium tracking-wide text-[#e6e7e7] transition-colors duration-200 hover:text-deep-purple-accent-400'
                 }
               >
@@ -71,10 +71,16 @@ const Header = () => {
             </li>
 
 
-{/* <ThemeChanger></ThemeChanger> */}
-{
+
+
+  </React.Fragment>
+  
+  const login = <React.Fragment>
+    {
               user?.uid ?
-                  <>
+        <>
+          
+          
 <button className='btn btn-dark sm:mx-4 my-4' onClick={handleLogOut}>Log out</button>
 <img className='w-[50px] h-[50px] rounded-full' title={user?.displayName}  src={user?.photoURL ? user.photoURL:<FaCentos></FaCentos>} alt="" />
 
@@ -85,11 +91,13 @@ const Header = () => {
    <Link to='/login'><button className='btn btn-dark sm:mx-4 my-4' >Log In</button>
 </Link>
 
+
+         
                       
 </>
 
 }
-</React.Fragment>
+  </React.Fragment>
 
 
 
@@ -105,28 +113,48 @@ const Header = () => {
 
 
   return (
-    <div className='bg-[#202428] shadow-lg'>
-      <div className='px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'>
-        <div className='relative flex items-center justify-between'>
-          <Link
+    <>
+      
+      <div className="navbar bg-base-100 grid grid-cols-3 gap-4 px-4">
+        <div className="flex justify-center">
+          <p className='px-3 text-2xl font-bold text-[#ff4157]'><FaPhoneVolume></FaPhoneVolume></p>
+          <p><span className='uppercase ml-2'>Call Us Now</span> <br /><span>0128443</span></p>
+        </div>
+        <div className="flex justify-center">
+    <a className="btn btn-ghost normal-case text-xl "> <Link
             to='/'
             aria-label='proReader'
             title='proReader'
             className='inline-flex items-center'
           >
-            <FaCanadianMapleLeaf className='text-[#97ba1f] font-bold text-2xl'></FaCanadianMapleLeaf>
+            <FaBookOpen className='text-[#ff4157] font-bold text-2xl'></FaBookOpen>
            
 
             <span className='ml-2 text-xl text-white font-bold tracking-wide #302e2c text-shadow-lg'>
-            Super <span className='text-[#97ba1f]'>Transport</span>
+            <span className='text-[black]'> bookstore</span>
 
             </span>
-          </Link>
-          <ul className=' items-center hidden space-x-8 lg:flex'>
+          </Link></a>
+        </div>
+
+
+        <div className="flex justify-center">
+          {login}
+        </div>
+  
+</div>
+    <div className='bg-[#ff4157] shadow-lg'>
+      <div className='px-4 py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'>
+        <div className='relative flex items-center justify-between px-8'>
+         
+          <ul className=' items-center hidden space-x-8 lg:flex '>
            
             
             {menu}
-          </ul>
+            </ul>
+            <div className="">
+            <input type="text" placeholder="Search book" className="input  border-2 border-white  w-full max-w-xs" />
+            </div>
           <div className='lg:hidden'>
             <button
               aria-label='Open Menu'
@@ -134,7 +162,7 @@ const Header = () => {
               className='p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50'
               onClick={() => setIsMenuOpen(true)}
             >
-              <svg className='w-5 text-gray-600' viewBox='0 0 24 24'>
+              <svg className='w-5 text-white' viewBox='0 0 24 24'>
                 <path
                   fill='currentColor'
                   d='M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z'
@@ -160,7 +188,7 @@ const Header = () => {
             title='proReader'
             className='inline-flex items-center'
           >
-            <FaCanadianMapleLeaf className='text-[#97ba1f] font-bold text-2xl'></FaCanadianMapleLeaf>
+            <FaBookOpen className='text-[#ff4157] font-bold text-2xl'></FaBookOpen>
            
 
             <span className='ml-2 text-xl text-white font-bold tracking-wide #302e2c text-shadow-lg'>
@@ -179,7 +207,7 @@ const Header = () => {
                         className='p-2 -mb-[-100px] -mr-2 transition duration-200 rounded hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline'
                         onClick={() => setIsMenuOpen(false)}
                       >
-                        <svg className='w-5 text-gray-600' viewBox='0 0 24 24'>
+                        <svg className='w-5 text-white' viewBox='0 0 24 24'>
                           <path
                             fill='currentColor'
                             d='M19.7,4.3c-0.4-0.4-1-0.4-1.4,0L12,10.6L5.7,4.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l6.3,6.3l-6.3,6.3 c-0.4,0.4-0.4,1,0,1.4C4.5,19.9,4.7,20,5,20s0.5-0.1,0.7-0.3l6.3-6.3l6.3,6.3c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3 c0.4-0.4,0.4-1,0-1.4L13.4,12l6.3-6.3C20.1,5.3,20.1,4.7,19.7,4.3z'
@@ -207,7 +235,8 @@ const Header = () => {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+      </>
   )
 }
 

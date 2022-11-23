@@ -1,8 +1,14 @@
 import React from 'react'
+import Bannar from './Bannar'
+import ProductCategory from './ProductCategory'
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <div>
+
+      <Bannar></Bannar>
+      <ProductCategory></ProductCategory>
+    </div>
   )
 }
 
