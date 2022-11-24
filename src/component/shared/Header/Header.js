@@ -68,7 +68,37 @@ const Header = () => {
               >
                 Blog
               </NavLink>
-            </li>
+    </li>
+    {
+              user?.uid ?
+        <> 
+            
+            <li>
+            <NavLink
+             to="/dashboard"
+              aria-label='Home'
+              title='blog'
+              className={({ isActive }) =>
+                isActive
+                ? 'font-bold tracking-wide text-[#9918a0]  transition-colors duration-200 hover:text-deep-purple-accent-400'
+                : 'font-medium tracking-wide text-[#e6e7e7] transition-colors duration-200 hover:text-deep-purple-accent-400'
+              }
+            >
+              Dashboard
+            </NavLink>
+          </li>
+          
+ 
+      </>
+                  :
+                  <>
+   
+
+         
+                      
+</>
+
+}
 
 
 
@@ -78,7 +108,8 @@ const Header = () => {
   const login = <React.Fragment>
     {
               user?.uid ?
-        <>
+        <> 
+          
           
           
 <button className='btn btn-dark sm:mx-4 my-4' onClick={handleLogOut}>Log out</button>
@@ -147,15 +178,7 @@ const Header = () => {
       <div className='px-4 py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'>
         <div className='relative flex items-center justify-between px-8'>
          
-          <ul className=' items-center hidden space-x-8 lg:flex '>
-           
-            
-            {menu}
-            </ul>
-            <div className="">
-            <input type="text" placeholder="Search book" className="input  border-2 border-white  w-full max-w-xs" />
-            </div>
-          <div className='lg:hidden'>
+        <div className='lg:hidden'>
             <button
               aria-label='Open Menu'
               title='Open Menu'
@@ -233,6 +256,18 @@ const Header = () => {
               </div>
             )}
           </div>
+          <ul className=' items-center hidden space-x-8 lg:flex '>
+           
+            
+            {menu}
+            </ul>
+            <div className="">
+            <input type="text" placeholder="Search book" className="input  border-2 border-white  w-full max-w-xs" />
+            </div>
+            <label  htmlFor="my-drawer-2" tabIndex={1} className="btn btn-ghost lg:hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 text-white w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+      </label>
+         
         </div>
       </div>
       </div>

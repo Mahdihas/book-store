@@ -7,26 +7,26 @@ const Footer = () => {
 
 
 
-          <footer className="footer p-10 bg-[#262c31] grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 ">
+          <footer className="footer p-10 bg-[#f8f8f8] mt-6 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 ">
   <div>
-    <span className="footer-title text-[white] ">Services</span> 
-    <a className="  text-[white]   link link-hover">Branding</a> 
-    <a className="  text-[white]   link link-hover">Design</a> 
-    <a className="  text-[white]   link link-hover">Marketing</a> 
-    <a className="  text-[white]   link link-hover">Advertisement</a>
+    <span className="footer-title  text-[#717178] ">Services</span> 
+    <a className="  text-[#77777b]   link link-hover">Branding</a> 
+    <a className="   text-[#77777b]  link link-hover">Design</a> 
+    <a className="  text-[#77777b]   link link-hover">Marketing</a> 
+    <a className="   text-[#77777b]   link link-hover">Advertisement</a>
   </div> 
   <div>
-    <span className="footer-title text-[#bebfc4] ">Company</span> 
-    <a className=" text-[white]   link link-hover">About us</a> 
-    <a className=" text-[white]   link link-hover">Contact</a> 
-    <a className=" text-[white]   link link-hover">Jobs</a> 
-    <a className=" text-[white]   link link-hover">Press kit</a>
+    <span className="footer-title text-[#717178] ">Company</span> 
+    <a className="   text-[#77777b]  link link-hover">About us</a> 
+    <a className="   text-[#77777b]  link link-hover">Contact</a> 
+    <a className="   text-[#77777b]   link link-hover">Jobs</a> 
+    <a className="   text-[#77777b]  link link-hover">Press kit</a>
   </div> 
   <div>
-    <span className="footer-title text-[#bebfc4] ">Legal</span> 
-    <a className=" text-[white]   link link-hover">Terms of use</a> 
-    <a className=" text-[white]   link link-hover">Privacy policy</a> 
-    <a className=" text-[white]   link link-hover">Cookie policy</a>
+    <span className="footer-title text-[#717178] ">Legal</span> 
+    <a className="  text-[#77777b]  link link-hover">Terms of use</a> 
+    <a className="  text-[#77777b]  link link-hover">Privacy policy</a> 
+    <a className=" text-[#77777b]   link link-hover">Cookie policy</a>
   </div>
 </footer> 
 <footer className="footer px-10 py-4 border-t bg-[#22272b]  text-white border-base-300">

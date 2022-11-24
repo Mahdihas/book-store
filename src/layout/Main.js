@@ -8,8 +8,11 @@ const Main = () => {
   return (
       <div>
           
-          <Header></Header>
-          <Outlet></Outlet>
+      <Header></Header>
+      <div className="max-w-screen-xl mx-auto ">
+      <Outlet></Outlet>
+      </div>
+          
           <Footer></Footer>
 
     </div>

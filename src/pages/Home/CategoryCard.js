@@ -1,25 +1,36 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
+import Button3 from '../../component/shared/Button/Button3';
+import Buttontwo from '../../component/shared/Button/Buttontwo';
 
 const CategoryCard = ({ service }) => {
     
-    const { name, img, total } = service;
+    const { category, img, total,_id } = service;
 
      
 
   return (
-      <div>
-          <div className="card  bg-base-100 shadow-xl">
-  <figure><img className='h-[200px] w-[100%]' src={img} alt="Shoes" /></figure>
-  <div className="card-body">
-    <h2 className="card-title"> <p>{name}</p></h2>
+    <Link to={`/service/${service._id}`}><div className='p-4'>
+       <div className=" flex  border-[8px] transition duration-150  hover:ease-in hover:border-[4px]  hover:translate-x-0 border-[#ff738f]  shadow-2xl">
+        <div className="py-6 px-4">
+        <img className='h-[180px] w-[160px]' src={img} alt="Shoes" />
+            </div>
+          
+          <div className="px-5 flex  justify-center items-center">
+          <span className='text-black text-5xl sm:text-4xl font-bold md:text-2xl lg:text-4xl'> {category} <span className='font-semibold'> Book</span></span>
+        
+         </div>
+       
+
+ 
                  
-                  <p>{ total}</p>
-    <div className="card-actions justify-end">
-      <button className="btn btn-primary">Buy Now</button>
-    </div>
-  </div>
+                 
+    
+  
 </div>
+         
     </div>
+    </Link>
   )
 }
 

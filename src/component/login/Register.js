@@ -12,7 +12,8 @@ import { BsUpload } from "react-icons/bs";
 const Register = () => {
   const {createUser, updateUserProfile}=useContext(AuthContext)
 
-
+  const [select, setSelect] = useState();
+  const [createduserEmail,setCreateduserEmail]=useState('')
   
   const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -21,6 +22,7 @@ const Register = () => {
 
   const handleSignUp = (data) => {
     const image = data.image[0];
+    const Title = data.Title;
 
     console.log(data);
     setSignUPError('');
@@ -47,10 +49,14 @@ const Register = () => {
             toast.success('User Created Successfully.')
             const userInfo = {
               displayName: data.name,
+              Title: data.Title,
               photoURL: imageData.data.display_url
             }
             updateUserProfile(userInfo)
-                .then(() => {  })
+              .then(() => {  
+                  
+                saveUser(data.name,data.email,data.Title)
+                })
                 .catch(err => console.log(err));
         })
         .catch(error => {
@@ -61,6 +67,28 @@ const Register = () => {
       })
 
    
+  }
+  
+
+
+  const saveUser = (name,email,Title) => {
+    const user = { name, email,Title };
+    fetch('http://localhost:5000/users', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(user)
+    })
+        .then(res => res.json())
+        .then(data => {
+           console.log('saveuser', data);
+           setCreateduserEmail(email)
+
+       })
+
+
+
 }
 
 
@@ -91,7 +119,33 @@ const Register = () => {
                   })} className="input hidden py-2 input-bordered w-full max-w-xs" />
                     </div>
                     {errors.image && <p className='text-red-500 '>{errors.image.message}</p>}
-                </div>
+            </div>
+
+
+
+
+
+
+           
+            <div className="form-control w-full max-w-xs">
+                    <label className="label"> <span className="label-text  text-white">Chose account</span></label>
+              <div className="flex">
+                  
+              <select {...register("Title", { required: true })}>
+                <option value="buyer">buyer</option>
+                <option value="seller">seller</option>
+      
+       </select>
+
+            
+            </div>
+            </div>
+
+
+
+
+
+
             <div className="form-control w-full max-w-xs">
                 <label className="label"> <span className="label-text  text-white">Email</span></label>
                 <input type="email" {...register("email", {
@@ -108,6 +162,8 @@ const Register = () => {
                 })} className="input input-bordered w-full max-w-xs" />
                 {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
             </div>
+
+            
             <Button>Sign Up</Button>
           </form>
           <div className="my-4">{signUpError && <p className='text-yellow-600'>{signUpError}</p>}</div>
