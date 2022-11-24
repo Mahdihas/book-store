@@ -9,7 +9,7 @@ const ShowProducts = ({ order }) => {
 
   return (
       <div className='px-4 my-6'>
-         <div className="card w-96 bg-base-100 shadow-xl">
+         <div className="card bg-base-100 shadow-xl">
   <figure><img src={image} alt="Shoes" /></figure>
   <div className="card-body">
     <h2 className="card-title">
@@ -17,8 +17,8 @@ const ShowProducts = ({ order }) => {
       <div className="badge badge-secondary">NEW</div>
     </h2>
                   <p className='flex my-2 font-semibold justify-between'>
-                      <span className=''>Current Price : {resaleprice}$</span>
-                      <span>Original Price : {originalprice}$</span>
+                      <span className=''>Current Price : <span className='text-[#95831d]'> {resaleprice}$</span></span>
+                      <span>Original Price : <span className='text-[#95831d]'>{originalprice}$</span></span>
                   </p>
                   
                   <p className='flex my-2  font-semibold  justify-between'>

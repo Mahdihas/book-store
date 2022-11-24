@@ -32,7 +32,7 @@ const Header = () => {
                 title='Home'
                 className={({ isActive }) =>
                   isActive
-                    ? 'font-bold tracking-wide text-[#7018a0]  transition-colors duration-200 hover:text-deep-purple-accent-400'
+                    ? 'font-bold tracking-wide text-[gold]  transition-colors duration-200 hover:text-deep-purple-accent-400'
                     : 'font-medium tracking-wide text-[#e6e7e7] transition-colors duration-200 hover:text-deep-purple-accent-400'
                 }
               >
@@ -46,7 +46,7 @@ const Header = () => {
                 title='event'
                 className={({ isActive }) =>
                   isActive
-                    ? 'font-bold tracking-wide text-[#a01897]  transition-colors duration-200 hover:text-deep-purple-accent-400'
+                    ? 'font-bold tracking-wide text-[gold]   transition-colors duration-200 hover:text-deep-purple-accent-400'
                     : 'font-medium tracking-wide text-[#e6e7e7] transition-colors duration-200 hover:text-deep-purple-accent-400'
                 
                 }
@@ -62,7 +62,7 @@ const Header = () => {
                 title='blog'
                 className={({ isActive }) =>
                   isActive
-                    ? 'font-bold tracking-wide text-[#9918a0]  transition-colors duration-200 hover:text-deep-purple-accent-400'
+                    ? 'font-bold tracking-wide text-[gold]    transition-colors duration-200 hover:text-deep-purple-accent-400'
                     : 'font-medium tracking-wide text-[#e6e7e7] transition-colors duration-200 hover:text-deep-purple-accent-400'
                 }
               >
@@ -80,7 +80,7 @@ const Header = () => {
               title='blog'
               className={({ isActive }) =>
                 isActive
-                ? 'font-bold tracking-wide text-[#9918a0]  transition-colors duration-200 hover:text-deep-purple-accent-400'
+                ? 'font-bold tracking-wide text-[gold]    transition-colors duration-200 hover:text-deep-purple-accent-400'
                 : 'font-medium tracking-wide text-[#e6e7e7] transition-colors duration-200 hover:text-deep-purple-accent-400'
               }
             >
@@ -112,14 +112,14 @@ const Header = () => {
           
           
           
-<button className='btn btn-dark sm:mx-4 my-4' onClick={handleLogOut}>Log out</button>
+<button className='btn hidden sm:block btn-dark sm:mx-4 my-4' onClick={handleLogOut}>Log out</button>
 <img className='w-[50px] h-[50px] rounded-full' title={user?.displayName}  src={user?.photoURL ? user.photoURL:<FaCentos></FaCentos>} alt="" />
 
         
       </>
                   :
                   <>
-   <Link to='/login'><button className='btn btn-dark sm:mx-4 my-4' >Log In</button>
+   <Link to='/login'><button className='btn  btn-dark sm:mx-4 my-4' >Log In</button>
 </Link>
 
 
@@ -146,11 +146,13 @@ const Header = () => {
   return (
     <>
       
-      <div className="navbar bg-base-100 grid grid-cols-3 gap-4 px-4">
-        <div className="flex justify-center">
+      <div className="navbar bg-base-100 grid grid-cols-2 sm:grid-cols-3 gap-4 px-4">
+        <div className="hidden sm:flex  justify-center">
           <p className='px-3 text-2xl font-bold text-[#ff4157]'><FaPhoneVolume></FaPhoneVolume></p>
-          <p><span className='uppercase ml-2'>Call Us Now</span> <br /><span>0128443</span></p>
+          <p><span className='uppercase ml-2'>Call Us Now</span> <br /><span className='ml-[10px]'>0128443</span></p>
         </div>
+
+
         <div className="flex justify-center">
     <a className="btn btn-ghost normal-case text-xl "> <Link
             to='/'
@@ -172,6 +174,8 @@ const Header = () => {
         <div className="flex justify-center">
           {login}
         </div>
+
+
   
 </div>
     <div className='bg-[#ff4157] shadow-lg'>
@@ -262,9 +266,11 @@ const Header = () => {
             {menu}
             </ul>
             <div className="">
-            <input type="text" placeholder="Search book" className="input  border-2 border-white  w-full max-w-xs" />
+            <input  type="text" placeholder="Search book" className="input hidden sm:block  border-2 border-white  w-full max-w-xs" />
             </div>
-            <label  htmlFor="my-drawer-2" tabIndex={1} className="btn btn-ghost lg:hidden">
+           
+           
+            <label htmlFor="my-drawer-2" tabIndex={1} className="btn btn-ghost lg:hidden">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 text-white w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
       </label>
          

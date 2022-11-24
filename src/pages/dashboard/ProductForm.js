@@ -93,7 +93,7 @@ const ProductForm = ({ selectedDate }) => {
             <label className="label"> <span className="label-text">Name</span></label>
                 
             <select className='border border-spacing-2 py-[12px] rounded-lg' {...register("category", { required: true })}>
-                <option value="Historical">Historical</option>
+                <option value="Drama">Drama</option>
                       <option value="Novals">Novals</option>
                       <option value="Science">Science</option>
       
