@@ -1,10 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Context/UserContext';
 
 const ProductForm = ({ selectedDate }) => {
+
+    const { user } = useContext(AuthContext)
+    console.log(user);
 
     const options=
            
@@ -53,7 +57,8 @@ const ProductForm = ({ selectedDate }) => {
                     resaleprice: data.resaleprice,
                     years: data.years,
                     time: data.time,
-                    category:data.category,
+                    category: data.category,
+                    seller: user?.displayName
                     
 
                 }

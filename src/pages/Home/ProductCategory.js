@@ -24,7 +24,7 @@ const ProductCategory = () => {
   return (
     
       <div className="">
-          <h1 className='text-bold text-4xl font-bold text-center '>Choose  Your Books Category</h1>
+          <h1 className='d text-4xl font-semibold my-6 text-center '>Choose  Your Books Category</h1>
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4'>{
            services.map(service=><CategoryCard service={service}></CategoryCard>)          
       }
