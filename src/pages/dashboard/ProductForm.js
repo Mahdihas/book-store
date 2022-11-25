@@ -60,8 +60,8 @@ const ProductForm = ({ selectedDate }) => {
                     years: data.years,
                     time: data.time,
                     category: data.category,
-                    seller: user?.displayName
-                    
+                    seller: user?.displayName,
+                    des:data.des
 
                 }
 
@@ -165,6 +165,9 @@ const ProductForm = ({ selectedDate }) => {
 
 
        
+        <textarea className='w-full my-4 max-w-xs border  border-primary' {...register("des")} placeholder="Give a description" />
+
+                  
         <div className="form-control w-full max-w-xs">
                       <label className="label"> <span className="label-text">Photo</span></label>
                       
