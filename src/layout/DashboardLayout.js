@@ -12,23 +12,23 @@ const DashboardLayout = () => {
       <div>
           <div>
   <Header></Header>
-      <div className="drawer drawer-mobile">
+      <div className="drawer  drawer-mobile">
   <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
   <div className="drawer-content ">
           <Outlet></Outlet>
           
   
   </div> 
-  <div className="drawer-side">
+  <div className="drawer-side  ">
     <label htmlFor="my-drawer-2" className="drawer-overlay"></label> 
-    <ul className="menu p-4 w-80 bg-base-100 text-base-content">
+    <ul className="menu  p-4 w-80 bg-[#ff4157] bg-base-100 text-base-content">
 
 
-              <li><Link to={'myproducts'}><a>My Producst</a></Link></li>
+              <li className='border border-[2px] my-2 rounded-md'><Link to={'myproducts'}><a className='text-white'>My Producst</a></Link></li>
 
               {/* <li><Link to={'mybuyers'}><a>My buyers</a></Link></li> */}
 
-              <li><Link to={'addproducts'}><a>Add Products</a></Link></li>
+              <li className='border border-[2px] my-2 rounded-md'><Link to={'addproducts'}><a className='text-white'>Add Products</a></Link></li>
 
               
 

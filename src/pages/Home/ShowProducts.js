@@ -26,7 +26,8 @@ const ShowProducts = ({ order }) => {
                       <span>Posted Time {time}</span>
                   </p>
           <p className='font-semibold my-2 '> Only {years} old</p>
-          <p className='font-semibold my-2 '> Seller : {seller}</p>
+          <p className='font-semibold my-2 '> <span className=''>Seller : {seller}</span>
+          <input type="checkbox" className="checkbox mx-6" disabled checked /></p>
 
           
     <div className="card-actions justify-end">

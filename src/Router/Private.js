@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import { AuthContext } from '../context/UserContext';
 import { useState, CSSProperties } from "react";
 
 import ClipLoader from "react-spinners/ClipLoader";
+import { AuthContext } from '../Context/UserContext';
 
 
 

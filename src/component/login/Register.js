@@ -164,7 +164,7 @@ const Register = () => {
             </div>
 
             
-            <Button>Sign Up</Button>
+            <div className="flex justify-center items-center w-[100%] text-center"> <Button>Sign Up</Button></div>  
           </form>
           <div className="my-4">{signUpError && <p className='text-yellow-600'>{signUpError}</p>}</div>
 

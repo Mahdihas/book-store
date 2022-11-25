@@ -2,6 +2,7 @@
 import { createBrowserRouter } from 'react-router-dom'
 import Login from '../component/login/Login';
 import Register from '../component/login/Register';
+import Error from '../component/shared/error/Error';
 import DashboardLayout from '../layout/DashboardLayout';
 import Main from '../layout/Main'
 import Blog from '../pages/Blog/Blog';
@@ -11,13 +12,15 @@ import MyProducts from '../pages/dashboard/MyProducts';
 import Home from '../pages/Home/Home';
 import Products from '../pages/Home/Products';
 import Service from '../pages/service/Service';
+import Private from './Private';
 
 
 
 const router = createBrowserRouter([
 
     {
-        path:'/',
+        path: '/',
+        errorElement:<Error></Error>,
         element: <Main></Main>,
         children: [
             
@@ -57,7 +60,7 @@ const router = createBrowserRouter([
       {
 
         path: '/service/:id',
-          element: <Products></Products>,
+          element: <Private> <Products></Products> </Private> ,
           loader: ({params})=> fetch(`http://localhost:5000/services/${params.id}`)
       }
 ,

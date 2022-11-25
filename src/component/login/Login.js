@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext';
+import useToken from '../../Router/useToken';
 import Button from '../shared/Button/Button';
 
 const Login = () => {
@@ -12,14 +13,14 @@ const Login = () => {
   const location = useLocation();
   const [loginUser, setLoginUser] = useState('');
 
-  // const [token] = useToken(loginUser);
+  const [token] = useToken(loginUser);
   const navigate = useNavigate();
 
   const from = location.state?.from?.pathname || '/';
-  // if (token) {
-  //     navigate(from, {replace: true});
+  if (token) {
+      navigate(from, {replace: true});
 
-  // }
+  }
 
 
 
@@ -68,7 +69,7 @@ const Login = () => {
                 <label className="label"> <span className="label-text text-white">Forget Password?</span></label>
                 {errors.password && <p className='text-red-600'>{errors.password?.message}</p>}
             </div>
-            <Button><span className='text-white'>Login</span></Button>
+           <div className="flex justify-center items-center w-[100%] text-center"> <Button><span className='text-center w-full text-white'>Login</span></Button></div>
             <div className='my-6'>
                 {loginError && <p className='text-red-600'>{loginError}</p>}
             </div>
