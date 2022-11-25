@@ -2,12 +2,19 @@ import React, { useContext } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import Header from '../component/shared/Header/Header'
 import { AuthContext } from '../Context/UserContext'
+import useAdmin from '../Router/useAdmin'
+import useBuyer from '../Router/useBuyer'
+import useSeller from '../Router/useSeller'
 
 
 const DashboardLayout = () => {
 
     const {user}=useContext(AuthContext)
-    // const [isAdmin] = useAdmin(user?.email)
+  const [isAdmin] = useAdmin(user?.email);
+  const [isSeller] = useSeller(user?.email)
+  const [isBuyer] = useBuyer(user?.email)
+
+
   return (
       <div>
           <div>
@@ -20,27 +27,52 @@ const DashboardLayout = () => {
   
   </div> 
   <div className="drawer-side  ">
-    <label htmlFor="my-drawer-2" className="drawer-overlay"></label> 
-    <ul className="menu  p-4 w-80 bg-[#ff4157] bg-base-100 text-base-content">
-
-
-              <li className='border border-[2px] my-2 rounded-md'><Link to={'myproducts'}><a className='text-white'>My Producst</a></Link></li>
-
-              {/* <li><Link to={'mybuyers'}><a>My buyers</a></Link></li> */}
-
-              <li className='border border-[2px] my-2 rounded-md'><Link to={'addproducts'}><a className='text-white'>Add Products</a></Link></li>
+    <label htmlFor="my-drawer-2 " className="drawer-overlay"></label> 
+    <ul className="menu  p-4 w-80   bg-[#ff4157]  text-base-content">
 
               
+  
+              
+    {
+                isSeller && <>
+                  <li className='border border-[2px] my-2 rounded-md'><Link to={'addproducts'}><a className='text-white'>Add Products</a></Link></li>
+                  <li className='border border-[2px] my-2 rounded-md'><Link to={'myproducts'}><a className='text-white'>My Products</a></Link></li>
 
-            {/* {
-              isAdmin && <>
-                <li><Link to={'allusers'}><a>All users</a></Link></li>
-                <li><Link to={'addoctor'}><a>Ad doctor</a></Link></li>
-                <li><Link to={'managedoctors'}><a>Ad doctor</a></Link></li>
+
+                  
+
+                  
+          
+</>
+              }
+              {
+                isBuyer &&  <>
+                   <li className='border border-[2px] my-2 rounded-md'><Link to={'myorders'}><a className='text-white'>My orders</a></Link></li>               
+
+                  
+             
+</>
+            }
+
+
+
+
+            {
+                isAdmin && <>
+                  
+
+
+
+
+
+                  
+                  <li className='border border-[2px] my-2 rounded-md'><Link to={'allseller'}><a className='text-white'>All seller</a></Link></li>               
+                  
+                  <li className='border border-[2px] my-2 rounded-md'><Link to={'allbuyer'}><a className='text-white'>All buyer</a></Link></li>               
 
 
 </>
-            } */}
+            }
     </ul>
   
   </div>

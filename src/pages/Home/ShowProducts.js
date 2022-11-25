@@ -1,7 +1,7 @@
 import React from 'react'
 import Button3 from '../../component/shared/Button/Button3';
 
-const ShowProducts = ({ order }) => {
+const ShowProducts = ({ order,setModalData }) => {
     const { resaleprice,originalprice,image,location,time,name,years,seller} = order;
     
  
@@ -30,12 +30,19 @@ const ShowProducts = ({ order }) => {
           <input type="checkbox" className="checkbox mx-6" disabled checked /></p>
 
           
-    <div className="card-actions justify-end">
-    <Button3>Book Now</Button3>
+          <div className="card-actions justify-end">
+            
+          <label
+              htmlFor="booking-modal"
+              onClick={() => setModalData(order)}
+
+                        className="btn bg-[#f4516c] rounded-full   text-white"
+                    >Booking Now</label>
+    
                   </div>
   </div>
 </div>
-    </div>
+    </div>  
   )
 }
 

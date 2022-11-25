@@ -5,6 +5,8 @@ import toast, { Toaster } from 'react-hot-toast';
 import { AuthContext } from '../../Context/UserContext';
 import Button from '../shared/Button/Button';
 import { BsUpload } from "react-icons/bs";
+import useToken from '../../Router/useToken';
+import { AuthToken } from '../../Router/auth';
 
 
 
@@ -17,8 +19,18 @@ const Register = () => {
   
   const { register, handleSubmit, formState: { errors } } = useForm();
 
-
+const navigate =useNavigate()
   const [signUpError, setSignUPError] = useState('')
+
+
+  const [token] = useToken(createduserEmail);
+  console.log(token);
+  if (token) {
+      navigate('/')
+  }
+
+
+
 
   const handleSignUp = (data) => {
     const image = data.image[0];
@@ -46,7 +58,7 @@ const Register = () => {
         .then(result => {
             const user = result.user;
             console.log(user);
-            toast.success('User Created Successfully.')
+          toast.success('User Created Successfully.')
             const userInfo = {
               displayName: data.name,
               Title: data.Title,

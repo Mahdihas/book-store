@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useLoaderData } from 'react-router-dom'
+import BookingModa from '../service/modal/BookingModal';
 import ShowProducts from './ShowProducts';
 
 const Products = () => {
@@ -9,9 +10,10 @@ const Products = () => {
       
     const [orders, setOrders] = useState([]);
     // console.log(orders);
+    const [modalData, setModalData]=useState(null);
 
     
-console.log(orders);        
+// console.log(orders);        
       
         useEffect(() => {
             fetch(`http://localhost:5000/products?category=${data?.category}`)
@@ -25,7 +27,7 @@ console.log(orders);
 
 
 
-
+    
 
 
 
@@ -42,11 +44,23 @@ console.log(orders);
 
                  
                  {
-              orders.map(order=><ShowProducts key={order._id}  order={order}></ShowProducts>)
+              orders.map(order=><ShowProducts  setModalData={setModalData} key={order._id}  order={order}></ShowProducts>)
           } 
 
-    </div>
+          </div>
           
+          
+          { modalData &&
+              
+          <BookingModa
+          modalData={modalData}
+          setModalData={setModalData}
+
+       
+    ></BookingModa>
+
+      
+      }
 
 
 

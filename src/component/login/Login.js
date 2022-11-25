@@ -17,10 +17,10 @@ const Login = () => {
   const navigate = useNavigate();
 
   const from = location.state?.from?.pathname || '/';
-  if (token) {
-      navigate(from, {replace: true});
+//   if (token) {
+//       ;
 
-  }
+//   }
 
 
 
@@ -32,6 +32,7 @@ const Login = () => {
             const user = result.user;
             setLoginUser(data.email)
             console.log(user);
+            navigate(from, {replace: true})
         })
         .catch(error => {
             console.log(error.message)

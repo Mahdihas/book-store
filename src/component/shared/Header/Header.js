@@ -39,7 +39,7 @@ const Header = () => {
                 Home
               </NavLink>
             </li>
-            <li>
+            {/* <li>
               <NavLink
                 to='/Service'
                 aria-label='Home'
@@ -53,7 +53,7 @@ const Header = () => {
               >
                 Services
               </NavLink>
-            </li>
+            </li> */}
            
             <li>
               <NavLink

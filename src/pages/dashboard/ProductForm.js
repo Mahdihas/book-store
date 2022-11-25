@@ -4,6 +4,8 @@ import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext';
+import { BsUpload } from "react-icons/bs";
+
 
 const ProductForm = ({ selectedDate }) => {
 
@@ -64,7 +66,7 @@ const ProductForm = ({ selectedDate }) => {
                 }
 
                 // save doctor information to the database
-                fetch('http://localhost:5000/products', {
+                fetch('http://localhost:5000/productsd', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -82,14 +84,15 @@ const ProductForm = ({ selectedDate }) => {
 
 
   return (
-    <div className='w-96 p-7'>
-    <h2 className="text-4xl">Add A Doctor</h2>
-    <form onSubmit={handleSubmit(handleAddDoctor)}>
-        <div className="form-control w-full max-w-xs">
+    <div className=''>
+          <h2 className="text-4xl text-center">Add A Product</h2>
+          <div className="flex justify-center">
+          <form onSubmit={handleSubmit(handleAddDoctor)}>
+        <div className="form-control  w-full max-w-xs">
             <label className="label"> <span className="label-text">Name</span></label>
             <input type="text" {...register("name", {
                 required: "Name is Required"
-            })} className="input input-bordered w-full max-w-xs" />
+            })} className="input  input-bordered input-primary w-full max-w-xs" />
             {errors.name && <p className='text-red-500'>{errors.name.message}</p>}
               </div>
               
@@ -97,7 +100,7 @@ const ProductForm = ({ selectedDate }) => {
               <div className="form-control w-full max-w-xs">
             <label className="label"> <span className="label-text">Name</span></label>
                 
-            <select className='border border-spacing-2 py-[12px] rounded-lg' {...register("category", { required: true })}>
+            <select className='border border-primary border-spacing-2 py-[12px] rounded-lg' {...register("category", { required: true })}>
                 <option value="Drama">Drama</option>
                       <option value="Novals">Novals</option>
                       <option value="Science">Science</option>
@@ -113,7 +116,7 @@ const ProductForm = ({ selectedDate }) => {
             <label className="label"> <span className="label-text">location</span></label>
             <input type="text" {...register("location", {
                 required: "location is Required"
-            })} className="input input-bordered w-full max-w-xs" />
+            })} className="input input-bordered input-primary w-full max-w-xs" />
             {errors.location && <p className='text-red-500'>{errors.location.message}</p>}
               </div>
               
@@ -121,12 +124,12 @@ const ProductForm = ({ selectedDate }) => {
               <div className="mx-1"><label className="label"> <span className="label-text">Original Price</span></label>
             <input type="text" {...register("originalprice", {
                 required: "original price is Required"
-            })} className="input input-bordered w-full max-w-xs" />
+            })} className="input input-bordered input-primary  w-full max-w-xs" />
             {errors.originalprice && <p className='text-red-500'>{errors.originalprice.message}</p>}</div>
                   <div className="mx-1"><label className="label"> <span className="label-text">resale price </span></label>
             <input type="text" {...register("resaleprice", {
                 required: "resaleprice is Required"
-            })} className="input input-bordered w-full max-w-xs" />
+            })} className="input input-bordered input-primary  w-full max-w-xs" />
             {errors.resaleprice  && <p className='text-red-500'>{errors.resaleprice .message}</p>}</div>
                  
               </div>
@@ -139,12 +142,12 @@ const ProductForm = ({ selectedDate }) => {
               <div className="mx-1"><label className="label"> <span className="label-text">Years of used</span></label>
             <input type="text" {...register("years", {
                 required: "years of used is Required"
-            })} className="input input-bordered w-full max-w-xs" />
+            })} className="input input-bordered input-primary  w-full max-w-xs" />
                       
             {errors.years && <p className='text-red-500'>{errors.years.message}</p>}</div>
                   
                   <div className="mx-1"><label className="label"> <span className="label-text">Time</span></label>
-                  <select className='border border-spacing-2 py-[12px] rounded-lg' {...register("time", { required: true })}>
+                  <select className='border border-primary border-spacing-2 py-[12px] rounded-lg' {...register("time", { required: true })}>
                
                           {
                                 options.map((option,i) => <option
@@ -163,14 +166,20 @@ const ProductForm = ({ selectedDate }) => {
 
        
         <div className="form-control w-full max-w-xs">
-            <label className="label"> <span className="label-text">Photo</span></label>
-            <input type="file" {...register("image", {
+                      <label className="label"> <span className="label-text">Photo</span></label>
+                      
+                      <label for='img' className="label input border-primary input-bordered w-full max-w-xs"> <BsUpload className='text-pink-500 font-bold text-2xl'></BsUpload></label>
+
+            <input id='img' type="file" {...register("image", {
                 // required: "Photo is Required"
-            })} className="input input-bordered w-full max-w-xs" />
+            })} className="input input-bordered hidden py-2 input-primary w-full max-w-xs" />
             {errors.image && <p className='text-red-500'>{errors.image.message}</p>}
-        </div>
-        <input className='btn btn-accent w-full mt-4' value="Add Doctor" type="submit" />
+              </div>
+              <div className="w-full text-center">        <input className='btn btn-accent px-12 text-center mt-4' value="Add Doctor" type="submit" />
+</div>
     </form>
+          </div>
+  
 </div>
   )
 }
