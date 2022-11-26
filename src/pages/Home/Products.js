@@ -6,7 +6,7 @@ import ShowProducts from './ShowProducts';
 const Products = () => {
 
     const  data  = useLoaderData([]);
-    // console.log(data);
+    console.log(data);
       
     const [orders, setOrders] = useState([]);
     // console.log(orders);

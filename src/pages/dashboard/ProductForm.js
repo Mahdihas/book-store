@@ -10,7 +10,7 @@ import { BsUpload } from "react-icons/bs";
 const ProductForm = ({ selectedDate }) => {
 
     const { user } = useContext(AuthContext)
-    console.log(user);
+    // console.log(user.email);
 
     const options=
            
@@ -37,9 +37,10 @@ const ProductForm = ({ selectedDate }) => {
 
     const navigate = useNavigate();
     
-    const handleAddDoctor = data => {
-        console.log(data);
+    const handleAddDoctor = (data,user) => {
+        // console.log(data);
         const image = data.image[0];
+
         const formData = new FormData();
         formData.append('image', image);
         const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`
@@ -52,6 +53,7 @@ const ProductForm = ({ selectedDate }) => {
             if(imgData.success){
                 console.log(imgData.data.url);
                 const doctor = {
+                    email: data.email,
                     name:data.name, 
                     location:data.location,
                     originalprice: data.originalprice,
@@ -94,11 +96,15 @@ const ProductForm = ({ selectedDate }) => {
                 required: "Name is Required"
             })} className="input  input-bordered input-primary w-full max-w-xs" />
             {errors.name && <p className='text-red-500'>{errors.name.message}</p>}
-              </div>
-              
+                  </div>
+                  <input type="text" {...register("email", {
+                required: "email is Required"
+            })}  className="input  input-bordered input-primary my-5 w-full max-w-xs"   defaultValue={user?.email} readOnly placeholder="Email Address" />
+
+            
 
               <div className="form-control w-full max-w-xs">
-            <label className="label"> <span className="label-text">Name</span></label>
+            <label className="label"> <span className="label-text">category</span></label>
                 
             <select className='border border-primary border-spacing-2 py-[12px] rounded-lg' {...register("category", { required: true })}>
                 <option value="Drama">Drama</option>

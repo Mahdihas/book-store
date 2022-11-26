@@ -1,4 +1,6 @@
 import React from 'react'
+import Advertise from './advertise/Advertise'
+import Allproducts from './allproducts/Allproducts'
 import Bannar from './Bannar'
 import ProductCategory from './ProductCategory'
 import Special from './Special'
@@ -15,8 +17,9 @@ const Home = () => {
 
 
 
-
       <Special></Special>
+
+      <Advertise></Advertise>
 
 
     </div>

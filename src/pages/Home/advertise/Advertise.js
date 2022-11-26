@@ -1,0 +1,54 @@
+import { useQuery } from '@tanstack/react-query';
+import React, { useContext } from 'react'
+import { AuthContext } from '../../../Context/UserContext';
+import AdvertisCard from './AdvertisCard';
+import './Advertise.css';
+
+
+const Advertise = () => {
+
+  
+    const { user } = useContext(AuthContext);
+
+
+    const url =   `http://localhost:5000/advertise?email=${user?.email}`;
+  
+    const { data: advertise = [] } = useQuery({
+        queryKey: ['advertise', user?.email],
+        queryFn: async () => {
+            const res = await fetch(url);
+            const data = await res.json();
+            return data;
+        }
+    })
+
+    console.log(advertise);
+
+
+    return (
+        <>
+            {
+                advertise && <div className="">
+                    <h1 className='text-4xl mt-16 mb-3 font-semibold uppercase text-center'>Special Offer </h1>
+                    <div className="text-center flex justify-center">
+              <div className=' h-[2px] w-[200px] py-0 bg-[#ff4157]'></div>
+          </div><div className="text-center my-2 flex justify-center">
+          <div className=' h-[1px] w-[20px] mx-2 py-0 bg-[#ff4157]'></div>
+              <div className=' h-[1px] w-[100px] py-0 bg-[#ff4157]'></div>
+              <div className=' h-[1px] w-[20px] mx-2 py-0 bg-[#ff4157]'></div>
+          </div>
+                </div> 
+                
+
+            }
+            <div className="grid mt-10 grid-col-1 sm:grid-cols-3 container1">
+            {
+                 advertise.map(item=><AdvertisCard key={item._id} item={item}></AdvertisCard>)
+                
+            }
+           </div>
+        </>
+  )
+}
+
+export default Advertise

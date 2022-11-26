@@ -64,7 +64,8 @@ const router = createBrowserRouter([
 
 
             { path: '/Service',
-            element:<Service></Service>
+                element: <Service></Service>
+        
             },
 
             
@@ -112,6 +113,8 @@ const router = createBrowserRouter([
              
              {
                  path: '/dashboard/myproducts',
+                 loader: ()=> fetch('http://localhost:5000/users'),
+
                  element:<SellerRout><MyProducts></MyProducts></SellerRout> 
              }
              ,

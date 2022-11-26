@@ -1,86 +1,85 @@
-import { useQuery } from '@tanstack/react-query';
-import React, { useState } from 'react'
+import React, { useContext, useState,useEffect } from 'react';
 import toast from 'react-hot-toast';
 import Loading from '../../component/shared/loading/Loading';
+import { AuthContext } from '../../Context/UserContext';
+import { useQuery } from '@tanstack/react-query'
+import { useLoaderData } from 'react-router-dom'
+import Table from './Table';
+
+
+
 
 const MyProducts = () => {
+//  { resaleprice,originalprice,image,location,time,name,years,seller} ;
+
+
+  const { user } = useContext(AuthContext);
+
+
+  const url =   `http://localhost:5000/myProducts?email=${user?.email}`;
+
+  const { data: myProducts = [] } = useQuery({
+      queryKey: ['myProducts', user?.email],
+      queryFn: async () => {
+          const res = await fetch(url);
+          const data = await res.json();
+          return data;
+      }
+  })
+
+  // console.log(myProducts);
 
 
 
-    const { data: doctors, isLoading, refetch } = useQuery({
-        queryKey: ['doctors'],
-        queryFn: async () => {
-            try {
-                const res = await fetch('https://doctor-server-pearl.vercel.app/doctors',{
-                    headers: {
-                        authorization: `bearer ${localStorage.getItem('accessToken')}`
-                    }
-                });
-                const data = await res.json();
-                return data;
-            }
-            catch (error) {
 
-            }
-        }
-    });
 
-    
-    const handleDeleteDoctor = doctor => {
-        fetch(`https://doctor-server-pearl.vercel.app/doctors/${doctor._id}`, {
-            method: 'DELETE', 
-            headers: {
-                authorization: `bearer ${localStorage.getItem('accessToken')}`
-            }
-        })
-        .then(res => res.json())
-        .then(data => {
-            if(data.deletedCount > 0){
-                refetch();
-                toast.success(`Doctor ${doctor.name} deleted successfully`)
-            }
-        })
-    }
 
-    if (isLoading) {
-        return <Loading></Loading>
-    }
+
+
+
+
+
+
+
+
+
+
+  
+  
+
 
     return (
         <div>
-            <h2 className="text-3xl">Manage Products: {doctors?.length}</h2>
+            <h2 className="text-3xl overflow- py-6 shadow-2xl uppercase  bg-[#ff4157] text-white border-[4px] text-center">Manage Products</h2>
             <div className="overflow-x-auto">
                 <table className="table w-full">
                     <thead>
                         <tr>
                             <th></th>
                             <th>Photos</th>
-                            <th>Name</th>
+                            <th>Products Name</th>
                             <th>Email</th>
-                            <th>Price</th>
-                            <th>Status</th>
+                <th>Price</th>
+                
+                <th>Advertise</th>
+
+                <th>delete</th>
+                <th>Status</th>
+
+
+                
                         </tr>
                     </thead>
-                    <tbody>
-                        {/* {
-                            doctors.map((doctor, i) => <tr key={doctor._id}>
-                                <th>{i + 1}</th>
-                                <td><div className="avatar">
-                                    <div className="w-24 rounded-full">
-                                        <img src={doctor.image} alt="" />
-                                    </div>
-                                </div></td>
-                                <td>{doctor.name}</td>
-                                <td>{doctor.email}</td>
-                                <td>{doctor.specialty}</td>
-                                <td>
+            <tbody>
 
 
-                                    <label htmlFor="confirmation-modal" onClick={() => ''} className="btn btn-sm btn-error">Delete</label>
-                                </td>
-                            </tr>) */}
-                        }
-                    </tbody>
+              {
+                myProducts.map((product,index)=><Table index={index} key={product._id} product={product}></Table>)
+          
+
+          }
+                        
+                 </tbody>
                 </table>
             </div>
            
