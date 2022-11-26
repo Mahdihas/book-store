@@ -20,9 +20,9 @@ export const AuthToken = (user) => {
     })
     .then(res => res.json())
     .then(data => {
-        console.log(data);
         // local storage is the easiest but not the best place to store jwt token
-        localStorage.setItem('Tranport-token', data.token);
+        localStorage.setItem('bookstore-token', data.token);
+        console.log(data);
 
       
     });

@@ -1,14 +1,16 @@
 import React, { useContext, useState } from 'react'
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext';
 import useToken from '../../Router/useToken';
 import Button from '../shared/Button/Button';
+import Social from './Social';
 
 const Login = () => {
 
   const { register, formState: { errors }, handleSubmit } = useForm();
-  const { Login } = useContext(AuthContext);
+  const { Login,setLoading } = useContext(AuthContext);
   const [loginError, setLoginError] = useState('');
   const location = useLocation();
   const [loginUser, setLoginUser] = useState('');
@@ -30,10 +32,44 @@ const Login = () => {
     Login(data.email, data.password)
         .then(result => {
             const user = result.user;
-            setLoginUser(data.email)
-            console.log(user);
-            navigate(from, {replace: true})
+            const currentUser = {
+                email: user?.email
+
+            }
+                
+                 // get jwts
+
+            fetch('http://localhost:5000/jwt', {
+                method: 'POST',
+                headers: {
+                    'content-type':'application/json'
+                    
+                },
+                body: JSON.stringify(currentUser)
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                // local storage is the easiest but not the best place to store jwt token
+                localStorage.setItem('bookstore-token', data.token);
+                toast.success('successfully login.')
+
+                navigate(from, { replace: true });
+                setLoading(false)
+
+              
+            });
+
+    
+        
+
         })
+
+
+
+           
+
+
         .catch(error => {
             console.log(error.message)
             setLoginError(error.message);
@@ -75,9 +111,9 @@ const Login = () => {
                 {loginError && <p className='text-red-600'>{loginError}</p>}
             </div>
         </form>
-        <p className=' text-white'>New to Doctors Portal <Link className='text-[#3fb5b3] font-bold' to="/register">Create new Account</Link></p>
-        <div className="divider">OR</div>
-        <button className='btn btn-outline hover:bg-secondary w-full text-white'>CONTINUE WITH GOOGLE</button>
+        <p className=' text-white'>New to Bookstore Portal <Link className='text-[#3fb5b3] font-bold' to="/register">Create new Account</Link></p>
+                  <div className="divider">OR</div>
+                  <Social></Social>
     </div>
 </div>
    </div>

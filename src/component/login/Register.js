@@ -7,6 +7,7 @@ import Button from '../shared/Button/Button';
 import { BsUpload } from "react-icons/bs";
 import useToken from '../../Router/useToken';
 import { AuthToken } from '../../Router/auth';
+import Social from './Social';
 
 
 
@@ -24,10 +25,10 @@ const navigate =useNavigate()
 
 
   const [token] = useToken(createduserEmail);
-  console.log(token);
-  if (token) {
-      navigate('/')
-  }
+  // console.log(token);
+  // if (token) {
+  //     navigate('/')
+  // }
 
 
 
@@ -68,8 +69,10 @@ const navigate =useNavigate()
               .then(() => {  
                   
                 saveUser(data.name,data.email,data.Title)
-                })
-                .catch(err => console.log(err));
+              })
+              
+          AuthToken(user)
+          navigate('/')
         })
         .catch(error => {
             console.log(error)
@@ -181,8 +184,11 @@ const navigate =useNavigate()
           <div className="my-4">{signUpError && <p className='text-yellow-600'>{signUpError}</p>}</div>
 
         <p className=' text-white'>Already have an account <Link className='text-secondary' to="/login">Please Login</Link></p>
-        <div className="divider">OR</div>
-        <button className='btn btn-outline hover:bg-secondary  w-full text-white'>CONTINUE WITH GOOGLE</button>
+          <div className="divider">OR</div>
+          
+
+
+     <Social></Social>
       </div>
       <Toaster></Toaster>
 
