@@ -66,7 +66,7 @@ const ProductForm = ({ selectedDate }) => {
                 }
 
                 // save doctor information to the database
-                fetch('http://localhost:5000/productsd', {
+                fetch('http://localhost:5000/products', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -77,7 +77,7 @@ const ProductForm = ({ selectedDate }) => {
                 .then(result =>{
                     console.log(result);
                     toast.success(`${data.name} is added successfully`);
-                })
+                    navigate('/dashboard/myproducts')                })
             }
         })
     }

@@ -24,7 +24,7 @@ const navigate =useNavigate()
   const [signUpError, setSignUPError] = useState('')
 
 
-  const [token] = useToken(createduserEmail);
+  // const [token] = useToken(createduserEmail);
   // console.log(token);
   // if (token) {
   //     navigate('/')
@@ -72,7 +72,6 @@ const navigate =useNavigate()
               })
               
           AuthToken(user)
-          navigate('/')
         })
         .catch(error => {
             console.log(error)
@@ -98,7 +97,9 @@ const navigate =useNavigate()
         .then(res => res.json())
         .then(data => {
            console.log('saveuser', data);
-           setCreateduserEmail(email)
+          setCreateduserEmail(email)
+          navigate('/')
+
 
        })
 
