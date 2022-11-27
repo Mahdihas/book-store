@@ -1,7 +1,7 @@
 import React from 'react'
 import toast from 'react-hot-toast';
 
-const Table = ({ product, index }) => {
+const Table = ({ product, index,handleDelete }) => {
 
     const { resaleprice, name, image, email, _id } = product;
     console.log(_id);
@@ -48,7 +48,7 @@ const Table = ({ product, index }) => {
     
     }
 
-    
+
     
     
 
@@ -81,7 +81,7 @@ const Table = ({ product, index }) => {
                 <td>
 
 
-                    <label htmlFor="confirmation-modal"  className="btn btn-sm text-white btn-error">Delete</label>
+                    <button onClick={()=>handleDelete(_id)}  className="btn btn-sm text-white btn-error">Delete</button>
               </td>
               <td>
               <label htmlFor="confirmation-modal"  className="btn btn-sm btn-primary text-white  mx-2">Status</label>

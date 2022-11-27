@@ -14,11 +14,11 @@ const MyProducts = () => {
 
 
   const { user } = useContext(AuthContext);
-
+    
 
   const url =   `http://localhost:5000/myProducts?email=${user?.email}`;
 
-  const { data: myProducts = [] } = useQuery({
+  const { data: myProducts = [],refetch } = useQuery({
       queryKey: ['myProducts', user?.email],
       queryFn: async () => {
           const res = await fetch(url);
@@ -26,17 +26,35 @@ const MyProducts = () => {
           return data;
       }
   })
+ 
+    
+ 
+    
+    
+    
+    
+    
 
-  // console.log(myProducts);
+    const [item, setItem]=useState([]);
 
-
-
-
-
-
-
-
-
+  const handleDelete = id => {
+    const proceed = window.confirm('Are you sure, you want to cancel this review');
+    if (proceed) {
+        fetch(`http://localhost:5000/products/${id}`,{
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    toast.success('deleted successfully');
+                    const remaining = myProducts.filter(odr => odr._id !== id);
+                    setItem(remaining);
+                }
+                refetch()
+            })
+    }
+}
+   
 
 
 
@@ -74,7 +92,7 @@ const MyProducts = () => {
 
 
               {
-                myProducts.map((product,index)=><Table index={index} key={product._id} product={product}></Table>)
+                myProducts.map((product,index)=><Table handleDelete={handleDelete}  index={index} key={product._id} product={product}></Table>)
           
 
           }

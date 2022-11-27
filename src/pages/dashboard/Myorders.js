@@ -53,7 +53,7 @@ console.log(bookings);
 console.log(bookings);
   return (
     <div>
-    <h3 className="text-3xl mb-5">My Prodcuts Booking</h3>
+    <h3 className="text-3xl text-center py-2 text-slate-600 font-semibold mb-5">{user?.displayName}'s Orders Booking</h3>
     <div className="overflow-x-auto">
         <table className="table w-full">
             <thead>
