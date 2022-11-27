@@ -113,7 +113,6 @@ const router = createBrowserRouter([
     ,
     {
         path: '/dashboard',
-        loader: ()=> fetch('http://localhost:5000/users'),
 
          element:<Private> <DashboardLayout></DashboardLayout></Private>,
          children: [
@@ -122,7 +121,7 @@ const router = createBrowserRouter([
                  path: '/dashboard/myproducts',
                  loader: ()=> fetch('http://localhost:5000/users'),
 
-                 element:<SellerRout><MyProducts></MyProducts></SellerRout> 
+                 element:<MyProducts></MyProducts>
              }
              ,
              {
@@ -134,19 +133,20 @@ const router = createBrowserRouter([
              
              {
                 path: '/dashboard/addproducts',
-                element: <SellerRout><AddProducts></AddProducts></SellerRout>
+                element: <AddProducts></AddProducts>
                  
              },
-             {
-                path :'/dashboard/myorders/:id',   
-                 element: <Payment></Payment> ,
-                 loader: ({ params }) => fetch(`https://doctor-server-pearl.vercel.app/booking/${params.id}`)
-             }  ,
+             
          
              {
                  path: '/dashboard/myorders',
                  element:<Myorders></Myorders>  
              },
+             {
+                path :'/dashboard/payment/:id',   
+                 element: <Payment></Payment> ,
+                 loader: ({ params }) => fetch(`http://localhost:5000/bookings/${params.id}`)
+             }  ,
              {
                 path: '/dashboard/allseller',
                 element:<AdminRoute><Allseller></Allseller></AdminRoute> 

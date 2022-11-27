@@ -34,7 +34,7 @@ const ProductCategory = () => {
               <div className=' h-[1px] w-[20px] mx-2 py-0 bg-[#ff4157]'></div>
           </div>
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4'>{
-           services.map(service=><CategoryCard service={service}></CategoryCard>)          
+           services.map(service=><CategoryCard key={service._id} service={service}></CategoryCard>)          
       }
       
       </div>

@@ -34,7 +34,7 @@ const DashboardLayout = () => {
   
               
     {
-                isSeller && <>
+                isSeller || isAdmin  ?<>
                   <li className='border border-[2px] my-2 rounded-md'><Link to={'addproducts'}><a className='text-white'>Add Products</a></Link></li>
                   <li className='border border-[2px] my-2 rounded-md'><Link to={'myproducts'}><a className='text-white'>My Products</a></Link></li>
 
@@ -43,10 +43,10 @@ const DashboardLayout = () => {
 
                   
           
-</>
+</>:''
               }
               { 
-                isBuyer || !isSeller && !isAdmin  ?  <>
+                isBuyer || !isSeller  ?  <>
                    <li className='border border-[2px] my-2 rounded-md'><Link to={'myorders'}><a className='text-white'>My orders</a></Link></li>               
 
                   

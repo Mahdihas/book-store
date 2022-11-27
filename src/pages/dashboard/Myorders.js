@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 
 import { AuthContext } from '../../Context/UserContext';
@@ -7,19 +7,48 @@ import { Link } from 'react-router-dom';
 const Myorders = () => {
 
 
-  const { user } = useContext(AuthContext);
-
-
-  const url =  `http://localhost:5000/bookings?email=${user?.email}`;
-
-  const { data: bookings = [] } = useQuery({
-      queryKey: ['bookings', user?.email],
-      queryFn: async () => {
-          const res = await fetch(url);
-          const data = await res.json();
-          return data;
+    const { user,logOut } = useContext(AuthContext);
+    const [bookings, setBookings] = useState([])
+    
+  useEffect(() => {
+    fetch(`http://localhost:5000/bookings?email=${user?.email}`,{
+      headers: {
+          authorization: `Bearer ${localStorage.getItem('bookstore-token')}`
       }
   })
+      
+        .then(res => {
+            if (res.status === 401 || res.status === 403) {
+                return logOut();
+            }
+            return res.json();
+        })
+      
+       
+        .then(data => {
+            setBookings(data);
+        })
+}, [user?.email,bookings, logOut])
+console.log(bookings);
+
+    
+
+
+
+//     const url = `http://localhost:5000/bookings?email=${user?.email}`,{
+//         headers: {
+//             authorization: `Bearer ${localStorage.getItem('Tranport-token')}`
+//         }
+    
+
+//   const { data: bookings = [] } = useQuery({
+//       queryKey: ['bookings', user?.email],
+//       queryFn: async () => {
+//           const res = await fetch(url);
+//           const data = await res.json();
+//           return data;
+//       }
+//   })
 
 console.log(bookings);
   return (
@@ -61,7 +90,7 @@ console.log(bookings);
                                         </Link>
                                     }
                                     {
-                                        bookings.price && booking.paid && <span className='text-green-500'>Paid</span>
+                                        bookings.resaleprice && booking.paid && <span className='text-green-500'>Paid</span>
                                     }</td>
 
                     </tr>)

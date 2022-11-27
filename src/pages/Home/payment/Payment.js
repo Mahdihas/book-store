@@ -7,20 +7,21 @@ import CheckoutForm from './CheckoutForm';
 const stripePromise = loadStripe('pk_test_51M66vYFykkGEJaxgprDaZ5MiX2FbTng1R0FL15Lobo6YXuOUmgOGMvrxF60qAPDmqtIyDbnItMJuAoO1yst0fRK800pYtt8iqa');
 const Payment = () => {
 
-    const bookings = useLoaderData()
+    const booking = useLoaderData()
+    console.log(booking);
 
 
 
-    const { treatment, price, appointmentDate, slot } = bookings;
+    const { name, resaleprice,time ,location} = booking;
     
   return (
     <div>
-    <h3 className="text-3xl">Payment for {treatment}</h3>
-    <p className="text-xl">Please pay <strong>${price}</strong> for your appointment on {appointmentDate} at {slot}</p>
+    <h3 className="text-3xl">Payment for {name}</h3>
+    <p className="text-xl">Please pay <strong>${resaleprice}</strong> for your appointment on {location} at {time}</p>
     <div className='w-96 my-12'>
    
               <Elements stripe={stripePromise}>
-                  <CheckoutForm booking={bookings}>
+                  <CheckoutForm booking={booking}>
                       
                   </CheckoutForm>
         </Elements>

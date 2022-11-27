@@ -47,6 +47,8 @@ const Table = ({ product, index }) => {
             })
     
     }
+
+    
     
     
 
@@ -65,7 +67,7 @@ const Table = ({ product, index }) => {
        <tr >
                 <th>{index +1}</th>
                 <td><div className="avatar">
-                    <div className="w-24 rounded-full">
+                    <div className="w-24">
                         <img src={image} alt="" />
                     </div>
                 </div></td>
