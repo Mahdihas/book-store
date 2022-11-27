@@ -43,7 +43,7 @@ const BookingModa = ({ modalData, setModalData }) => {
         // and display success toast
         console.log(booking);
 
-        fetch('http://localhost:5000/bookings', {
+        fetch(' https://server-side-weld.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type':'application/json'

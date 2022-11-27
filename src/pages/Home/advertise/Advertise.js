@@ -15,7 +15,7 @@ const Advertise = () => {
 
 
 
-    const url =   'http://localhost:5000/advertise';
+    const url =   ' https://server-side-weld.vercel.app/advertise';
   
     const { data: advertise = [] } = useQuery({
         queryKey: ['advertise'],

@@ -11,7 +11,7 @@ const Myorders = () => {
     const [bookings, setBookings] = useState([])
     
   useEffect(() => {
-    fetch(`http://localhost:5000/bookings?email=${user?.email}`,{
+    fetch(` https://server-side-weld.vercel.app/bookings?email=${user?.email}`,{
       headers: {
           authorization: `Bearer ${localStorage.getItem('bookstore-token')}`
       }
@@ -35,7 +35,7 @@ console.log(bookings);
 
 
 
-//     const url = `http://localhost:5000/bookings?email=${user?.email}`,{
+//     const url = ` https://server-side-weld.vercel.app/bookings?email=${user?.email}`,{
 //         headers: {
 //             authorization: `Bearer ${localStorage.getItem('Tranport-token')}`
 //         }

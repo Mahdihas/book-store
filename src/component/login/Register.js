@@ -87,7 +87,7 @@ const navigate =useNavigate()
 
   const saveUser = (name,email,Title) => {
     const user = { name, email,Title };
-    fetch('http://localhost:5000/users', {
+    fetch(' https://server-side-weld.vercel.app/users', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'

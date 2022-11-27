@@ -16,7 +16,7 @@ const Products = () => {
 // console.log(orders);        
       
         useEffect(() => {
-            fetch(`http://localhost:5000/products?category=${data?.category}`)
+            fetch(` https://server-side-weld.vercel.app/products?category=${data?.category}`)
               
             .then(res => res.json())
                 .then(data => {

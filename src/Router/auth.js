@@ -10,7 +10,7 @@ export const AuthToken = (user) => {
 
     // get jwt
 
-    fetch('http://localhost:5000/jwt', {
+    fetch(' https://server-side-weld.vercel.app/jwt', {
         method: 'POST',
         headers: {
             'content-type':'application/json'

@@ -16,7 +16,7 @@ const MyProducts = () => {
   const { user } = useContext(AuthContext);
     
 
-  const url =   `http://localhost:5000/myProducts?email=${user?.email}`;
+  const url =   ` https://server-side-weld.vercel.app/myProducts?email=${user?.email}`;
 
   const { data: myProducts = [],refetch } = useQuery({
       queryKey: ['myProducts', user?.email],
@@ -40,7 +40,7 @@ const MyProducts = () => {
   const handleDelete = id => {
     const proceed = window.confirm('Are you sure, you want to cancel this review');
     if (proceed) {
-        fetch(`http://localhost:5000/products/${id}`,{
+        fetch(` https://server-side-weld.vercel.app/products/${id}`,{
             method: 'DELETE'
         })
             .then(res => res.json())
