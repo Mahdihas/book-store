@@ -109,7 +109,7 @@ const navigate =useNavigate()
 
 
   return (
-    <div className="hero " style={{ backgroundImage: `url("https://th.bing.com/th/id/R.64772012938512627f18f875ccafabfc?rik=dZlmxYUMZgAm8w&pid=ImgRaw&r=0")` }} >
+    <div className="hero py-12" style={{ backgroundImage: `url("https://th.bing.com/th/id/R.64772012938512627f18f875ccafabfc?rik=dZlmxYUMZgAm8w&pid=ImgRaw&r=0")` }} >
 
     <div className='flex justify-center items-center'>
     <div className='w-full sm:w-96 border border-white rounded-[35px] p-7'>

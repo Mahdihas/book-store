@@ -1,8 +1,9 @@
 import React from 'react'
 import Button3 from '../../component/shared/Button/Button3';
 
+
 const ShowProducts = ({ order,setModalData }) => {
-    const { resaleprice,originalprice,image,location,time,name,years,seller} = order;
+    const { resaleprice,originalprice,image,location,time,name,years,seller,_id} = order;
     
  
 
@@ -41,7 +42,8 @@ const ShowProducts = ({ order,setModalData }) => {
     
                   </div>
   </div>
-</div>
+      </div>
+     
     </div>  
   )
 }

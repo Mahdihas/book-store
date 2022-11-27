@@ -24,6 +24,7 @@ import Quiezone from '../pages/Blog/Quiezone';
 import QuiezTwo from '../pages/Blog/QuiezTwo';
 import QuiezThree from '../pages/Blog/QuiezThree';
 import QuiezFour from '../pages/Blog/QuiezFour';
+import Payment from '../pages/Home/payment/Payment';
 
 
 
@@ -129,11 +130,19 @@ const router = createBrowserRouter([
                 element:<MyBuyer></MyBuyer>
                  
              },
+             
+             
              {
                 path: '/dashboard/addproducts',
                 element: <SellerRout><AddProducts></AddProducts></SellerRout>
                  
              },
+             {
+                path :'/dashboard/myorders/:id',   
+                 element: <Payment></Payment> ,
+                 loader: ({ params }) => fetch(`https://doctor-server-pearl.vercel.app/booking/${params.id}`)
+             }  ,
+         
              {
                  path: '/dashboard/myorders',
                  element:<Myorders></Myorders>  

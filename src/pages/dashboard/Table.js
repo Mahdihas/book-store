@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 const Table = ({ product, index }) => {
 
     const { resaleprice, name, image, email, _id } = product;
-    // console.log(_id);
+    console.log(_id);
     
 
     const handleAdvertise = event => {
@@ -15,7 +15,7 @@ const Table = ({ product, index }) => {
             resaleprice,
             image,
             email,
-            id:_id
+      
 
 
 

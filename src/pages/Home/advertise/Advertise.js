@@ -11,10 +11,10 @@ const Advertise = () => {
     const { user } = useContext(AuthContext);
 
 
-    const url =   `http://localhost:5000/advertise?email=${user?.email}`;
+    const url =   'http://localhost:5000/advertise';
   
     const { data: advertise = [] } = useQuery({
-        queryKey: ['advertise', user?.email],
+        queryKey: ['advertise'],
         queryFn: async () => {
             const res = await fetch(url);
             const data = await res.json();
@@ -44,7 +44,7 @@ const Advertise = () => {
 
             }
 
-            <div className="grid mt-10 grid-col-1 sm:grid-cols-3 container1">
+            <div className="grid mt-10 grid-col-1 gap-4 sm:grid-cols-3 container1">
                 {
                     advertise.map(item => <AdvertisCard setItem={setItem} key={item._id} item={item}></AdvertisCard>)
                 

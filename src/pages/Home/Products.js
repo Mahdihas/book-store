@@ -6,7 +6,7 @@ import ShowProducts from './ShowProducts';
 const Products = () => {
 
     const  data  = useLoaderData([]);
-    console.log(data);
+    // console.log(data._id);
       
     const [orders, setOrders] = useState([]);
     // console.log(orders);
@@ -60,8 +60,9 @@ const Products = () => {
     ></BookingModa>
 
       
-      }
-
+          }
+         
+          
 
 
     </div>
