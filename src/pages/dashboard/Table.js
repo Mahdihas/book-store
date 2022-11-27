@@ -3,26 +3,28 @@ import toast from 'react-hot-toast';
 
 const Table = ({ product, index }) => {
 
-   const {resaleprice,name,image,email}=product;
+    const { resaleprice, name, image, email, _id } = product;
+    // console.log(_id);
     
 
     const handleAdvertise = event => {
    
-        // [3, 4, 5].map((value, i) => console.log(value))
+        
         const booking = {
             name,
             resaleprice,
             image,
-            email
+            email,
+            id:_id
+
+
 
 
 
            
         }
     
-        // TODO: send data to the server
-        // and once data is saved then close the modal 
-        // and display success toast
+       
         console.log(booking);
     
         fetch('http://localhost:5000/advertise', {

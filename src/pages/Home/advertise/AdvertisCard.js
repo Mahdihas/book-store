@@ -2,9 +2,10 @@ import React from 'react'
 import { FaHeartBroken,FaCartArrowDown,FaSearch,FaCompress } from "react-icons/fa";
 import './Advertise.css';
 
-const AdvertisCard = ({ item }) => {
+const AdvertisCard = ({ item ,setItem}) => {
     
-    const {resaleprice,name,image,email}=item;
+  const { resaleprice, name, image, email } = item;
+  setItem(item)
 
     return (
       
@@ -22,7 +23,7 @@ const AdvertisCard = ({ item }) => {
                         <span className='mx-4 font-bold text-2xl text-[skyblue] '>{name}</span>
 
                            
-                        </p>ee
+                        </p>
                         <p> <span className='mx-2 text-[gold] my-3'> Price : {resaleprice}</span></p>
                           <p className=''>
                               <span className='mx-4'><FaHeartBroken></FaHeartBroken></span>

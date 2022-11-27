@@ -67,6 +67,10 @@ const router = createBrowserRouter([
                 element: <Service></Service>
         
             },
+            
+        
+
+
 
             
       {
@@ -108,6 +112,8 @@ const router = createBrowserRouter([
     ,
     {
         path: '/dashboard',
+        loader: ()=> fetch('http://localhost:5000/users'),
+
          element:<Private> <DashboardLayout></DashboardLayout></Private>,
          children: [
              
