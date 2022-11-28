@@ -8,11 +8,15 @@ import { BsUpload } from "react-icons/bs";
 import useToken from '../../Router/useToken';
 import { AuthToken } from '../../Router/auth';
 import Social from './Social';
+import useTitle from '../../Router/hook/useTitle';
 
 
 
 
 const Register = () => {
+
+
+  useTitle('register page')
   const {createUser, updateUserProfile}=useContext(AuthContext)
 
   const [select, setSelect] = useState();
@@ -147,7 +151,7 @@ const navigate =useNavigate()
                     <label className="label"> <span className="label-text  text-white">Chose account</span></label>
               <div className="flex">
                   
-              <select {...register("Title", { required: true })}>
+              <select className='border py-3 rounded-lg  w-full max-w-xs ' {...register("Title", { required: true })}>
                 <option value="buyer">buyer</option>
                 <option value="seller">seller</option>
       

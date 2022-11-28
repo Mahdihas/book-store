@@ -3,11 +3,14 @@ import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext';
+import useTitle from '../../Router/hook/useTitle';
 import useToken from '../../Router/useToken';
 import Button from '../shared/Button/Button';
 import Social from './Social';
 
 const Login = () => {
+
+    useTitle('login page')
 
   const { register, formState: { errors }, handleSubmit } = useForm();
   const { Login,setLoading } = useContext(AuthContext);

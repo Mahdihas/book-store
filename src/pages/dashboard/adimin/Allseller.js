@@ -2,13 +2,15 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import AllsellerCard from './AllsellerCard';
 import toast from 'react-hot-toast';
+import useTitle from '../../../Router/hook/useTitle';
 const Allseller = () => {
+  useTitle('all sellers')
    
   const [sellers, setSellers] = useState([]);
 
   useEffect(() => {
     
-    axios.get('http://localhost:5000/sellers')
+    axios.get('https://server-side-weld.vercel.app/sellers')
       .then(res => {
         setSellers(res.data)
     })
@@ -20,7 +22,7 @@ const Allseller = () => {
   const handleDelete = id => {
     const proceed = window.confirm('Are you sure, you want to cancel this seller');
     if (proceed) {
-        fetch(`http://localhost:5000/sellers/${id}`,{
+        fetch(`https://server-side-weld.vercel.app/sellers/${id}`,{
             method: 'DELETE'
         })
             .then(res => res.json())

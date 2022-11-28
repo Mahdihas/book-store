@@ -2,12 +2,14 @@ import React, { useContext } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import Header from '../component/shared/Header/Header'
 import { AuthContext } from '../Context/UserContext'
+import useTitle from '../Router/hook/useTitle'
 import useAdmin from '../Router/useAdmin'
 import useBuyer from '../Router/useBuyer'
 import useSeller from '../Router/useSeller'
 
 
 const DashboardLayout = () => {
+  useTitle('dashboard page')
 
     const {user}=useContext(AuthContext)
   const [isAdmin] = useAdmin(user?.email);

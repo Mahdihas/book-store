@@ -1,8 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Button3 from '../../component/shared/Button/Button3'
+import useTitle from '../../Router/hook/useTitle'
 
 const Blog = () => {
+  useTitle(' Blog page')
+
   return (
     <div className='my-6'>
 

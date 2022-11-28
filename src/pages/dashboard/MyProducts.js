@@ -5,13 +5,13 @@ import { AuthContext } from '../../Context/UserContext';
 import { useQuery } from '@tanstack/react-query'
 import { useLoaderData } from 'react-router-dom'
 import Table from './Table';
+import useTitle from '../../Router/hook/useTitle';
 
 
 
 
 const MyProducts = () => {
-//  { resaleprice,originalprice,image,location,time,name,years,seller} ;
-
+ useTitle('my products')
 
   const { user } = useContext(AuthContext);
     

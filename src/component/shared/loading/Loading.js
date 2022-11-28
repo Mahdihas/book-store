@@ -1,17 +1,15 @@
 
 
 import React from 'react';
+import ClipLoader from "react-spinners/ClipLoader";
+
 
 const Loading = () => {
 
     
     
     return (
-        <div className="flex justify-center items-center">
-            <div className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full" role="status">
-                <span className="visually-hidden">...</span>
-            </div>
-        </div>
+        <div className='h-[50vh] w-full flex justify-center items-center'><ClipLoader size={100} color="#36d7b7" /></div>
     );
 };
 

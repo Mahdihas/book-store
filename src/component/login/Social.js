@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext';
 import { AuthToken } from '../../Router/auth';
 
-
+import { BsGoogle } from "react-icons/bs";
 import toast, { Toaster } from 'react-hot-toast';
 
 
@@ -70,8 +70,8 @@ const Social = () => {
 
 
   return (
-      <div className='text-center flex justify-center my-2 px-4'>
-          <button onClick={handleGoogle} className='btn border-[tomato] text-[tomato] bg-white'>Google</button>
+      <div className='text-center flex justify-center  px-4'>
+          <button onClick={handleGoogle} className='btn  btn-outline-none rounded-full bg-[white] text-[blue] text-2xl'><BsGoogle></BsGoogle></button>
           {/* <button onClick={handleGithub} className='btn border-[tomato] text-[tomato] bg-[skyblue]'>GitHub</button> */}
         <Toaster></Toaster>
     </div>
