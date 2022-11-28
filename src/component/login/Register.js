@@ -113,30 +113,30 @@ const navigate =useNavigate()
 
 
   return (
-    <div className="hero py-12" style={{ backgroundImage: `url("https://th.bing.com/th/id/R.64772012938512627f18f875ccafabfc?rik=dZlmxYUMZgAm8w&pid=ImgRaw&r=0")` }} >
+    <div className="hero " style={{ backgroundImage: `url("https://th.bing.com/th/id/OIP.l7UtqpAoSasZ9777hHlp6QHaE8?pid=ImgDet&rs=1)` }} >
 
-    <div className='flex justify-center items-center'>
+    <div className='flex justify-center py-12 hero-overlay bg-opacity-60  items-center'>
     <div className='w-full sm:w-96 border border-white rounded-[35px] p-7'>
         <h2 className='text-3xl text-center font-bold  text-white  '>Sign Up</h2>
         <form onSubmit={handleSubmit(handleSignUp)}>
-            <div className="form-control w-full max-w-xs">
+            <div className="form-control w-full">
                 <label className="label"> <span className="label-text  text-white">Name</span></label>
                 <input type="text" {...register("name", {
                     required: "Name is Required"
-                })} className="input input-bordered w-full max-w-xs" />
+                })} className="input input-bordered w-full " />
                 {errors.name && <p className='text-red-500'>{errors.name.message}</p>}
           </div>
           
 
-          <div className="form-control w-full max-w-xs">
+          <div className="form-control w-full ">
                     <label className="label"> <span className="label-text  text-white">Photo</span></label>
               <div className="flex">
-              <label for='img' className="label input input-bordered w-full max-w-xs"> <BsUpload className='text-pink-500 font-bold text-2xl'></BsUpload></label>
+              <label for='img' className="label input input-bordered w-full "> <BsUpload className='text-pink-500 font-bold text-2xl'></BsUpload></label>
 
                 
               <input id='img'  type="file" {...register("image", {
                     required: "image is Required"
-                  })} className="input hidden py-2 input-bordered w-full max-w-xs" />
+                  })} className="input hidden py-2 input-bordered w-full " />
                     </div>
                     {errors.image && <p className='text-red-500 '>{errors.image.message}</p>}
             </div>
@@ -147,11 +147,11 @@ const navigate =useNavigate()
 
 
            
-            <div className="form-control w-full max-w-xs">
+            <div className="form-control w-full">
                     <label className="label"> <span className="label-text  text-white">Chose account</span></label>
               <div className="flex">
                   
-              <select className='border py-3 rounded-lg  w-full max-w-xs ' {...register("Title", { required: true })}>
+              <select className='border py-3 rounded-lg  w-full ' {...register("Title", { required: true })}>
                 <option value="buyer">buyer</option>
                 <option value="seller">seller</option>
       
@@ -166,20 +166,20 @@ const navigate =useNavigate()
 
 
 
-            <div className="form-control w-full max-w-xs">
+            <div className="form-control w-full ">
                 <label className="label"> <span className="label-text  text-white">Email</span></label>
                 <input type="email" {...register("email", {
                     required: true
-                })} className="input input-bordered w-full max-w-xs" />
+                })} className="input input-bordered w-full " />
                 {errors.email && <p className='text-red-500'>{errors.email.message}</p>}
             </div>
-            <div className="form-control w-full my-2 max-w-xs">
+            <div className="form-control w-full my-2 ">
                 <label className="label"> <span className="label-text  text-white">Password</span></label>
                 <input type="password" {...register("password", {
                     required: "Password is required",
                     minLength: { value: 6, message: "Password must be 6 characters long" },
                     pattern: { value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/, message: 'Password must have uppercase, number and special characters' }
-                })} className="input input-bordered w-full max-w-xs" />
+                })} className="input input-bordered w-full " />
                 {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
             </div>
 

@@ -12,8 +12,8 @@ const Blog = () => {
       <div className="grid px-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 
       <div className="card card-compact  bg-base-100 shadow-xl">
-  <figure><img    className='h-[200px]'  src="https://cdn.educba.com/academy/wp-content/uploads/2020/01/React-Native-Architecture-1-768x427.jpg" alt="Shoes" /></figure>
-  <div className="card-body sm:h-[350px]">
+  <figure><img    className='h-[200px] '  src="https://cdn.educba.com/academy/wp-content/uploads/2020/01/React-Native-Architecture-1-768x427.jpg" alt="Shoes" /></figure>
+  <div className="card-body sm:h-[400px]">
     <h2 className="card-title">What are the different ways to manage a state in a React application ?</h2>
             <p>A simple guide to proper state management in React <br /> 
               
@@ -25,7 +25,7 @@ const Blog = () => {
                  <br />
               3 Redux state management ..</p>
     <div className="card-actions justify-end">
-      <Link to={'/quiezone'}>  <Button3>Read More</Button3>  </Link>
+      <Link >  <Button3>Read More</Button3>  </Link>
     </div>
   </div>
         </div>
@@ -39,7 +39,7 @@ const Blog = () => {
     <h2 className="card-title">How does prototypical inheritance work?</h2>
     <p>When React first came out, the idea of using prototypal inheritance all over the place to create a component was considered laughable just because there is so much setup you have to do (as you saw above) whenever you are creating a subclass that inherits from another object. Instead, to create a component, we would use the createClass helper. This is a part of React, but I want to show you an instance of where some existing library migrated towards classes...</p>
     <div className="card-actions justify-end">
-    <Link to={'/quieztwo'}>  <Button3>Read More</Button3>  </Link>
+    <Link >  <Button3>Read More</Button3>  </Link>
     </div>
   </div>
         </div>
@@ -56,7 +56,7 @@ const Blog = () => {
     <p className='py-0 mt-[-50px]'>Unit Tests are Repeatable and it Makes Coding Agile. The best thing about the Unit tests is …
 </p>
             <div className="card-actions justify-end">
-    <Link to={'/quiezthree'}>  <Button3>Read More</Button3>  </Link>
+    <Link >  <Button3>Read More</Button3>  </Link>
     </div>
   </div>
         </div>
@@ -73,7 +73,7 @@ const Blog = () => {
     <p>Angular has 25.1%, while Vue is utilized by slightly fewer developers: 17.3%. To compare, NPM trends have estimated the downloads of all three web development frameworks …</p>
     <p className='mt-[-40px]'>Vue is simpler to understand than Angular or React since it is more adaptable. Furthermore, Vue’s functionality, such as the use of components, overlaps with that of Angular and React. Vue.js’s simplicity and adaptability ... </p>
             <div className="card-actions justify-end">
-    <Link to={'/quiezfour'}>  <Button3>Read More</Button3>  </Link>
+    <Link>  <Button3>Read More</Button3>  </Link>
     </div>
   </div>
 </div>

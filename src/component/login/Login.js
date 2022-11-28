@@ -84,28 +84,28 @@ const Login = () => {
 
 
   return (
-    <div className="hero " style={{ backgroundImage: `url("https://th.bing.com/th/id/R.572a59acf0452f6c74b7c11e6a8ef67f?rik=8upr8iyiRa9Kew&pid=ImgRaw&r=0")` }}>
+    <div className="hero " style={{ backgroundImage: `url("https://th.bing.com/th/id/R.59dec8255f67a2fef5ebfe165382d047?rik=CWKL%2b5eAQIk%2b%2bw&pid=ImgRaw&r=0")` }}>
        <div className='my-8 hero-overlay bg-opacity-60 flex justify-center items-center'>
     <div className='w-full sm:w-96 p-7 border border-white rounded-[35px]'>
         <h2 className='text-3xl text-center font-bold  text-white '>Login</h2>
         <form onSubmit={handleSubmit(handleLogin)}>
-            <div className="form-control w-full max-w-xs">
+            <div className="form-control w-full ">
                 <label className="label"> <span className="label-text text-white">Email</span></label>
                 <input type="text"
                     {...register("email", {
                         required: "Email Address is required"
                     })}
-                    className="input input-bordered w-full max-w-xs" />
+                    className="input input-bordered w-full" />
                 {errors.email && <p className='text-red-600'>{errors.email?.message}</p>}
             </div>
-            <div className="form-control my-2 w-full max-w-xs">
+            <div className="form-control my-2 w-full">
                 <label className="label"> <span className="label-text text-white">Password</span></label>
                 <input type="password"
                     {...register("password", {
                         required: "Password is required",
                         minLength: { value: 6, message: 'Password must be 6 characters or longer' }
                     })}
-                    className="input input-bordered w-full max-w-xs" />
+                    className="input input-bordered w-full " />
                 <label className="label"> <span className="label-text text-white">Forget Password?</span></label>
                 {errors.password && <p className='text-red-600'>{errors.password?.message}</p>}
             </div>

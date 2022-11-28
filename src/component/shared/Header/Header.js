@@ -4,6 +4,7 @@ import { FaCentos } from "react-icons/fa";
 import { FaPhoneVolume } from "react-icons/fa";
 import { FaBookOpen } from "react-icons/fa";
 import { AuthContext } from '../../../Context/UserContext';
+import Button3 from '../Button/Button3';
 
 
 
@@ -112,14 +113,14 @@ const Header = () => {
           
           
           
-<button className='btn hidden sm:block btn-dark sm:mx-4 my-4' onClick={handleLogOut}>Log out</button>
+<button className='btn border-none bg-none hidden sm:block bg-white outline-none sm:mx-4 my-4' onClick={handleLogOut}><Button3>Log Out</Button3></button>
 <img className='w-[50px] h-[50px] rounded-full' title={user?.displayName}  src={user?.photoURL ? user.photoURL:<FaCentos></FaCentos>} alt="" />
 
         
       </>
                   :
                   <>
-   <Link to='/login'><button className='btn  btn-dark sm:mx-4 my-4' >Log In</button>
+   <Link to='/login'><Button3>Log In</Button3>
 </Link>
 
 
@@ -206,10 +207,11 @@ const Header = () => {
             </button>
             {isMenuOpen && (
               <div className='absolute  top-0 left-0 w-full z-40'>
-                <div className='p-5 bg-[#202428] border rounded shadow-sm'>
+                <div className='p-5 bg-[#1f5f78] border rounded shadow-sm'>
                   <div className='flex items-center justify-between mb-4'>
-                    <div>
-                    <Link
+                      <div>
+                        <div className="   text center ">
+           <Link
             to='/'
             aria-label='proReader'
             title='proReader'
@@ -218,11 +220,13 @@ const Header = () => {
             <FaBookOpen className='text-[#ff4157] font-bold text-2xl'></FaBookOpen>
            
 
-            <span className='ml-2 text-xl text-white font-bold tracking-wide #302e2c text-shadow-lg'>
-            Super <span className='text-[#97ba1f]'>Transport </span>
+            <p className='ml-2  text-xl text-white text-center font-bold tracking-wide #302e2c text-shadow-lg'>
+            Book Store
 
-            </span>
+            </p>
           </Link>
+                        </div>
+        
                       
             
       
