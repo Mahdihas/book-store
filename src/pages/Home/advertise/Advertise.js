@@ -15,7 +15,7 @@ const Advertise = () => {
 
 
 
-    const url =   ' https://server-side-weld.vercel.app/advertise';
+    const url =   ' http://localhost:5000/advertise';
   
     const { data: advertise = [] } = useQuery({
         queryKey: ['advertise'],
@@ -49,7 +49,7 @@ const Advertise = () => {
 
             }
 
-            <div className="grid mt-10 grid-col-1 gap-4 sm:grid-cols-3 container1">
+            <div className="grid px-4 mt-10 grid-col-1 gap-4 sm:grid-cols-3 container1">
                 {
                     advertise.map(item => <AdvertisCard setItem={setItem} key={item._id} item={item}></AdvertisCard>)
                 

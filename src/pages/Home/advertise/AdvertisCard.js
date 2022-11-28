@@ -12,7 +12,7 @@ const AdvertisCard = ({ item ,setItem}) => {
 
 
         <div>
-             <div className="" >
+             <div className="px-4" >
                   
                   <div className="img-area1">
                       
@@ -24,7 +24,7 @@ const AdvertisCard = ({ item ,setItem}) => {
 
                            
                         </p>
-                        <p> <span className='mx-2 text-[gold] my-3'> Price : {resaleprice}</span></p>
+                        <p> <span className='mx-2 text-2xl text-[gold] my-3'> Price : {resaleprice}</span></p>
                           <p className=''>
                               <span className='mx-4'><FaHeartBroken></FaHeartBroken></span>
                             <span className='mx-4'>  <FaCartArrowDown></FaCartArrowDown></span>

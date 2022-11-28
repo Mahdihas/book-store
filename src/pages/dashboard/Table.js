@@ -15,6 +15,7 @@ const Table = ({ product, index,handleDelete }) => {
             resaleprice,
             image,
             email,
+            advertise:'advertise'
       
 
 
@@ -27,7 +28,7 @@ const Table = ({ product, index,handleDelete }) => {
        
         console.log(booking);
     
-        fetch(' https://server-side-weld.vercel.app/advertise', {
+        fetch(' http://localhost:5000/advertise', {
             method: 'POST',
             headers: {
                 'content-type':'application/json'

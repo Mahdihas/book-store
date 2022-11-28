@@ -3,15 +3,15 @@ import Button3 from '../../component/shared/Button/Button3';
 
 
 const ShowProducts = ({ order,setModalData }) => {
-    const { resaleprice,originalprice,image,location,time,name,years,seller,_id} = order;
+    const { resaleprice,originalprice,image,des,location,time,name,years,seller,_id} = order;
     
  
 
 
   return (
       <div className='px-4 my-6'>
-         <div className="card bg-base-100 shadow-xl">
-  <figure><img src={image} alt="Shoes" /></figure>
+         <div className="card h-[900px] bg-base-100 shadow-xl">
+  <figure><img className='h-[400px] rounded-none w-[100%]' src={image} alt="Shoes" /></figure>
   <div className="card-body">
     <h2 className="card-title">
       {name}
@@ -28,6 +28,8 @@ const ShowProducts = ({ order,setModalData }) => {
                   </p>
           <p className='font-semibold my-2 '> Only {years} old</p>
           <p className='font-semibold my-2 '> <span className=''>Seller : {seller}</span>
+          <p className='font-semibold my-2 '> Description {des? des : 'Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam dolor, elementum etos lobortis des mollis ut risus. Sedcus faucibus an sullamcorper mattis drostique des commodo pharetras...'}</p>
+
           <input type="checkbox" className="checkbox mx-6" disabled checked /></p>
 
           
